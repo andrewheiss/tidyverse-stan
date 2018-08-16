@@ -9,7 +9,6 @@ RUN apt-get update \
        apt-utils \
        ed \
        libnlopt-dev \
-       gcc \
        clang \
        ccache \
        libxt-dev \
@@ -51,6 +50,4 @@ RUN mkdir -p $HOME/.R \
 # Install Stan, rstan, rstanarm, brms, and friends
 RUN install2.r --error --deps TRUE \
         rstan loo bayesplot rstanarm rstantools shinystan brms ggmcmc \
-    && R -e "library(devtools); \
-        install_github('mjskay/tidybayes');" \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
